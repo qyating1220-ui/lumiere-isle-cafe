@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嶼光珈琲 Lumière Isle Café ｜ 沉浸式海景精品咖啡</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#1F1916',
+              espresso: '#2C1D18',
+              amber: '#C28B5B',
+              amberLight: '#DFAB7E',
+              sage: '#4A686A',
+              cream: '#FAF6F0',
+              creamDark: '#F0E8DE',
+              border: '#E8DFC8'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            display: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF6F0;
+      color: #1F1916;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .font-serif-tc { font-family: 'Noto Serif TC', serif; }
+    .font-display-en { font-family: 'Playfair Display', serif; }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #FAF6F0; }
+    ::-webkit-scrollbar-thumb { background: #C28B5B; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2C1D18; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-amber selection:text-white">
+
+  <!-- TOP PROMOTION BANNER (動態公告 - 可在後台 CRUD 修改) -->
+  <div id="promo-banner" class="bg-brand-espresso text-brand-cream text-xs sm:text-sm py-2 px-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2 truncate">
+        <span class="bg-brand-amber text-white text-[11px] font-medium px-2 py-0.5 rounded-full uppercase tracking-wider">最新公告</span>
+        <span id="promo-text" class="truncate font-light">🍂 迎秋限定：藝妓手沖搭配焦糖海鹽巴斯克，平日享第二件 85 折優惠！</span>
+      </div>
+      <div class="flex items-center space-x-4 pl-2 shrink-0">
+        <span class="hidden md:inline text-xs text-brand-cream/80">🈺 今日營業 09:30 - 19:30</span>
+        <button onclick="document.getElementById('promo-banner').style.display='none'" class="text-brand-cream/60 hover:text-white" title="關閉">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-border/60 transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <!-- SVG Brand Logo (Sunrise & Ocean Wave & Coffee Bean) -->
+        <div class="w-11 h-11 rounded-full bg-brand-espresso flex items-center justify-center text-brand-amber shadow-md group-hover:scale-105 transition-transform duration-300">
+          <svg class="w-7 h-7" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sun circle -->
+            <circle cx="24" cy="20" r="10" stroke="#C28B5B" stroke-width="2.5" fill="#FAF6F0" fill-opacity="0.1"/>
+            <!-- Coffee Bean S line in center -->
+            <path d="M24 13C22 17 26 23 24 27" stroke="#C28B5B" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Ocean wave bottom -->
+            <path d="M10 32C15 28 19 35 24 32C29 29 33 35 38 32" stroke="#4A686A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 37C16 34 20 39 24 37C28 35 32 39 36 37" stroke="#4A686A" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-baseline space-x-1.5">
+            <span class="font-serif-tc font-black text-xl tracking-wider text-brand-espresso">嶼光珈琲</span>
+            <span class="font-display-en italic text-sm text-brand-amber font-semibold">Lumière</span>
+          </div>
+          <p class="text-[10px] tracking-widest text-brand-espresso/60 uppercase font-light">Artisanal Coffee & Slow Living</p>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-espresso/80">
+        <a href="#about" class="hover:text-brand-amber transition-colors">品牌故事</a>
+        <a href="#quiz" class="hover:text-brand-amber transition-colors flex items-center space-x-1">
+          <span>命定測驗</span>
+          <span class="text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded-full font-bold">HOT</span>
+        </a>
+        <a href="#menu" class="hover:text-brand-amber transition-colors">精選菜單</a>
+        <a href="#reservation" class="hover:text-brand-amber transition-colors">線上訂位</a>
+        <a href="#store" class="hover:text-brand-amber transition-colors">門市資訊</a>
+      </nav>
+
+      <!-- ACTION BUTTONS -->
+      <div class="flex items-center space-x-3">
+        <!-- Switch to Admin Dashboard Button -->
+        <button onclick="toggleAdminView()" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-sage/10 text-brand-sage border border-brand-sage/30 hover:bg-brand-sage hover:text-white transition-all shadow-sm">
+          <i class="fa-solid fa-sliders"></i>
+          <span>後台資料管理</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-full bg-white border border-brand-border text-brand-espresso hover:border-brand-amber transition-colors shadow-sm" title="查看外帶購物車">
+          <i class="fa-solid fa-bag-shopping text-base"></i>
+          <span id="cart-count-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-brand-amber text-white text-xs rounded-full flex items-center justify-center font-bold scale-0 transition-transform">0</span>
+        </button>
+
+        <!-- Book Table CTA -->
+        <a href="#reservation" class="hidden lg:inline-flex items-center space-x-2 bg-brand-espresso text-brand-cream hover:bg-brand-amber text-xs font-semibold px-4 py-2.5 rounded-full transition-all shadow-sm">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>立即預約</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" onclick="toggleMobileNav()" class="md:hidden p-2 text-brand-espresso focus:outline-none" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MOBILE DROPDOWN DRAWER (響應式修復) -->
+    <div id="mobile-nav" class="hidden md:hidden bg-brand-cream border-b border-brand-border/80 px-6 py-5 space-y-4">
+      <a href="#about" onclick="toggleMobileNav()" class="block text-base font-medium text-brand-espresso hover:text-brand-amber">品牌故事</a>
+      <a href="#quiz" onclick="toggleMobileNav()" class="block text-base font-medium text-brand-espresso hover:text-brand-amber">命定咖啡推薦測驗</a>
+      <a href="#menu" onclick="toggleMobileNav()" class="block text-base font-medium text-brand-espresso hover:text-brand-amber">精選菜單與點餐</a>
+      <a href="#reservation" onclick="toggleMobileNav()" class="block text-base font-medium text-brand-espresso hover:text-brand-amber">線上桌位預約</a>
+      <a href="#store" onclick="toggleMobileNav()" class="block text-base font-medium text-brand-espresso hover:text-brand-amber">空間導覽與門市資訊</a>
+      <div class="pt-3 border-t border-brand-border/60 flex items-center justify-between">
+        <button onclick="toggleAdminView(); toggleMobileNav()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-brand-sage text-white">
+          <i class="fa-solid fa-sliders"></i>
+          <span>進入後台管理 (CRUD)</span>
+        </button>
+        <a href="presentation.html" target="_blank" class="text-xs text-brand-amber underline font-medium">查看 15 頁成果簡報</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== MAIN CUSTOMER VIEW ======================== -->
+  <main id="customer-view" class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden bg-brand-espresso text-brand-cream py-20 lg:py-28">
+      <!-- Decorative Backdrop circles & gradients -->
+      <div class="absolute inset-0 opacity-15 pointer-events-none">
+        <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-amber filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-sage filter blur-3xl"></div>
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Left Content -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-brand-amberLight text-xs tracking-wider border border-white/10">
+              <span class="w-2 h-2 rounded-full bg-brand-amber animate-pulse"></span>
+              <span>115 學年商業設計系 AI 專題作品 ｜ 嶼光珈琲</span>
+            </div>
+
+            <h1 class="font-serif-tc text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-wide text-white">
+              在海風與日落間，<br>
+              尋一杯<span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-amberLight via-brand-amber to-amber-200">專屬的手沖時光</span>。
+            </h1>
+
+            <p class="text-base sm:text-lg text-brand-cream/80 max-w-2xl leading-relaxed font-light">
+              坐落於蔚藍海岸公路的慢活咖啡館。嚴選自烘莊園精品豆、每日現烤手作巴斯克與海景沉浸席。無論是沉澱心靈或敲打鍵盤，這裡都有屬於你的那份香氣。
+            </p>
+
+            <!-- Feature Tags -->
+            <div class="flex flex-wrap gap-2.5 pt-2 text-xs text-brand-cream/90 font-medium">
+              <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fa-solid fa-fire-burner text-brand-amber mr-1"></i> 自烘莊園豆</span>
+              <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fa-solid fa-water text-brand-sage mr-1"></i> 180° 無敵海景席</span>
+              <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fa-solid fa-wifi text-brand-amber mr-1"></i> 不限時充電插座</span>
+              <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fa-solid fa-paw text-amber-300 mr-1"></i> 友善毛孩空間</span>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#quiz" class="inline-flex items-center space-x-2 bg-brand-amber hover:bg-brand-amberLight text-white font-medium px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-amber/25 hover:shadow-xl hover:-translate-y-0.5">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>測測今日專屬咖啡</span>
+              </a>
+              <a href="#menu" class="inline-flex items-center space-x-2 bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium px-6 py-3.5 rounded-full transition-all">
+                <span>瀏覽精選菜單</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a href="#reservation" class="inline-flex items-center space-x-2 bg-brand-sage/40 hover:bg-brand-sage text-white border border-brand-sage/60 font-medium px-6 py-3.5 rounded-full transition-all">
+                <i class="fa-regular fa-clock"></i>
+                <span>線上訂位</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right Graphic Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md bg-gradient-to-b from-white/15 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl space-y-6">
+              <!-- Live Today Card -->
+              <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <span class="text-xs uppercase tracking-widest text-brand-amber">Featured Pour Over</span>
+                  <h3 class="font-serif-tc text-xl font-bold text-white mt-0.5">日落海岸・衣索比亞 耶加雪菲</h3>
+                </div>
+                <span class="bg-brand-amber/20 text-brand-amberLight border border-brand-amber/40 text-xs px-2.5 py-1 rounded-full font-bold">NT$ 180</span>
+              </div>
+
+              <!-- Tasting notes pills -->
+              <div class="space-y-3">
+                <div class="text-xs text-brand-cream/70 font-light">風味調性 Tasting Notes:</div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <span class="bg-brand-espresso/80 border border-brand-amber/30 text-amber-200 px-2.5 py-1 rounded-lg">🌸 茉莉橙花香</span>
+                  <span class="bg-brand-espresso/80 border border-brand-amber/30 text-amber-200 px-2.5 py-1 rounded-lg">🍋 蜜漬黃檸檬</span>
+                  <span class="bg-brand-espresso/80 border border-brand-amber/30 text-amber-200 px-2.5 py-1 rounded-lg">🍯 伯爵白蜂蜜</span>
+                </div>
+              </div>
+
+              <!-- Roast & Acidity Meters -->
+              <div class="space-y-2 text-xs text-brand-cream/80">
+                <div class="flex justify-between">
+                  <span>烘焙度 (淺焙 Light Roast)</span>
+                  <span class="text-brand-amber font-mono">● ○ ○ ○ ○</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>果酸明亮感 (Vibrant Acidity)</span>
+                  <span class="text-brand-amber font-mono">● ● ● ● ○</span>
+                </div>
+              </div>
+
+              <button onclick="quickOrderDefaultItem()" class="w-full bg-brand-amber hover:bg-brand-amberLight text-white py-3 rounded-xl font-medium text-sm flex items-center justify-center space-x-2 transition-all">
+                <i class="fa-solid fa-plus"></i>
+                <span>立即外帶點單 (NT$ 180)</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STORY & PILLARS SECTION -->
+    <section id="about" class="py-20 bg-brand-cream border-b border-brand-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <span class="text-brand-amber font-display-en italic text-lg tracking-wider">Our Philosophy</span>
+          <h2 class="font-serif-tc text-3xl sm:text-4xl font-black text-brand-espresso">用一杯咖啡，安放奔波的靈魂</h2>
+          <p class="text-brand-espresso/70 leading-relaxed font-light">
+            在快節奏的數位時代，我們希望創造一個讓思緒慢下來的實體載體。結合商業設計系的視覺語彙與 AI 技術協作，打造從線上選豆、預約訂位到後台菜單管理的全方位數位體驗。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1 -->
+          <div class="bg-white rounded-2xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-brand-espresso/5 flex items-center justify-center text-brand-amber text-xl mb-6">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+            <h3 class="font-serif-tc text-xl font-bold text-brand-espresso mb-3">自家慢火烘焙</h3>
+            <p class="text-sm text-brand-espresso/70 leading-relaxed font-light">
+              每週少量批次烘焙，針對每支非洲與中南美洲莊園豆的最佳風味曲線調整，保留最純淨的花果香氣與焦糖甜感。
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white rounded-2xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-brand-sage/10 flex items-center justify-center text-brand-sage text-xl mb-6">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <h3 class="font-serif-tc text-xl font-bold text-brand-espresso mb-3">商設美學空間</h3>
+            <p class="text-sm text-brand-espresso/70 leading-relaxed font-light">
+              店內每處角落皆以大地色與浪花灰綠交織，原木長桌均備獨立電源與護眼燈光，為創作人提供極致舒適的沉浸式工作場域。
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white rounded-2xl p-8 border border-brand-border shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-brand-amber text-xl mb-6">
+              <i class="fa-solid fa-cake-candles"></i>
+            </div>
+            <h3 class="font-serif-tc text-xl font-bold text-brand-espresso mb-3">當季職人手作甜品</h3>
+            <p class="text-sm text-brand-espresso/70 leading-relaxed font-light">
+              堅持使用法國進口發酵奶油與日本十勝乳酪，招牌「焦糖海鹽蘭姆巴斯克」經無數次測試，達到流心入口即化的黃金比例。
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE QUIZ: FIND YOUR COFFEE (命定咖啡推薦測驗) -->
+    <section id="quiz" class="py-20 bg-brand-creamDark/60 border-b border-brand-border relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="inline-flex items-center space-x-1.5 bg-brand-amber/15 text-brand-amber text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Interactive Matchmaker</span>
+          </span>
+          <h2 class="font-serif-tc text-3xl sm:text-4xl font-black text-brand-espresso">測測你的「今日命定咖啡」</h2>
+          <p class="text-sm sm:text-base text-brand-espresso/70 max-w-xl mx-auto font-light">
+            不知道喝什麼？回答 3 個簡單問題，AI 推薦引擎將根據你的心情、烘焙度與口感偏好，為你配對最合適的一杯！
+          </p>
+        </div>
+
+        <!-- Quiz Container Card -->
+        <div class="bg-white rounded-3xl border border-brand-border shadow-xl p-6 sm:p-10 transition-all">
+          
+          <!-- Step 1: Roast Preference -->
+          <div id="quiz-step-1" class="quiz-step space-y-6">
+            <div class="flex items-center justify-between text-xs text-brand-espresso/50 border-b border-brand-border pb-3">
+              <span class="font-semibold text-brand-amber">問題 1 / 3</span>
+              <span>烘焙深度偏好</span>
+            </div>
+            <h3 class="font-serif-tc text-xl sm:text-2xl font-bold text-brand-espresso">
+              今天你期待品嚐哪種酸甜與香氣曲線？
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <button onclick="handleQuizAnswer(1, 'light')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🍋</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">淺焙 (Light)</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">明亮花果香、活潑果酸、茶感輕盈</div>
+              </button>
+              <button onclick="handleQuizAnswer(1, 'medium')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🥜</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">中焙 (Medium)</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">焦糖堅果、圓潤甜感、酸苦平衡</div>
+              </button>
+              <button onclick="handleQuizAnswer(1, 'dark')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🍫</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">深焙 (Dark)</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">深黑巧克力、濃郁醇厚、煙燻木質</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Texture & Drink Type -->
+          <div id="quiz-step-2" class="quiz-step hidden space-y-6">
+            <div class="flex items-center justify-between text-xs text-brand-espresso/50 border-b border-brand-border pb-3">
+              <span class="font-semibold text-brand-amber">問題 2 / 3</span>
+              <span>口感與奶香偏好</span>
+            </div>
+            <h3 class="font-serif-tc text-xl sm:text-2xl font-bold text-brand-espresso">
+              你偏好什麼樣的入喉質地？
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <button onclick="handleQuizAnswer(2, 'black')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">💧</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">澄澈純粹黑咖啡</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">細細品嚐莊園豆原始乾淨的風土特色</div>
+              </button>
+              <button onclick="handleQuizAnswer(2, 'milk')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🥛</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">絲滑濃郁奶香</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">燕麥奶或鮮乳與濃縮咖啡交織的綿密幸福感</div>
+              </button>
+              <button onclick="handleQuizAnswer(2, 'creative')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🫧</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">特調氣泡果香</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">微氣泡、西西里檸檬或海洋鹽花創意驚喜</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Current Vibe / State -->
+          <div id="quiz-step-3" class="quiz-step hidden space-y-6">
+            <div class="flex items-center justify-between text-xs text-brand-espresso/50 border-b border-brand-border pb-3">
+              <span class="font-semibold text-brand-amber">問題 3 / 3</span>
+              <span>此刻的心情狀態</span>
+            </div>
+            <h3 class="font-serif-tc text-xl sm:text-2xl font-bold text-brand-espresso">
+              今天造訪嶼光，最想獲得什麼樣的體驗？
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <button onclick="handleQuizAnswer(3, 'focus')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">⚡</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">激發靈感・深度專注</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">敲筆電打報告、需要一杯提神醒腦的清醒良伴</div>
+              </button>
+              <button onclick="handleQuizAnswer(3, 'relax')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🌊</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">悠閒放空・眺望海景</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">聽著海浪音樂、跟朋友愜意聊天無負擔</div>
+              </button>
+              <button onclick="handleQuizAnswer(3, 'healing')" class="quiz-option p-5 text-left rounded-2xl border-2 border-brand-border hover:border-brand-amber hover:bg-brand-cream/50 transition-all group">
+                <div class="text-2xl mb-2">🌿</div>
+                <div class="font-bold text-brand-espresso group-hover:text-brand-amber">療癒溫暖・犒賞自己</div>
+                <div class="text-xs text-brand-espresso/60 mt-1">想要一口咖啡搭配香濃甜點，釋放整週壓力</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Result Display Card -->
+          <div id="quiz-result" class="hidden text-center space-y-6 py-4">
+            <div class="inline-flex items-center space-x-2 bg-brand-amber/15 text-brand-amber px-3 py-1 rounded-full text-xs font-bold">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>為你計算出的今日命定款</span>
+            </div>
+            
+            <div class="max-w-md mx-auto bg-brand-cream p-6 rounded-2xl border border-brand-border space-y-4 shadow-sm">
+              <div id="result-icon" class="text-5xl">☕</div>
+              <div>
+                <h4 id="result-title" class="font-serif-tc text-2xl font-bold text-brand-espresso">日落海岸・衣索比亞 耶加雪菲</h4>
+                <p id="result-desc" class="text-xs text-brand-espresso/70 mt-2 leading-relaxed">
+                  你的靈魂渴望清澈與靈感！淺焙手沖的茉莉花與柑橘明亮酸香，能為你喚醒沉睡的創意神經。
+                </p>
+              </div>
+              <div class="flex items-center justify-center space-x-2 text-xs font-semibold text-brand-amber">
+                <span id="result-price" class="text-lg">NT$ 180</span>
+                <span class="text-brand-espresso/40">|</span>
+                <span id="result-tag" class="bg-white px-2.5 py-0.5 rounded-full border border-brand-border">淺焙手沖</span>
+              </div>
+              
+              <div class="flex space-x-3 pt-2">
+                <button onclick="addQuizResultToCart()" class="flex-1 bg-brand-amber hover:bg-brand-amberLight text-white py-2.5 rounded-xl font-medium text-sm transition-all shadow-md">
+                  <i class="fa-solid fa-cart-plus mr-1"></i> 加入外帶訂單
+                </button>
+                <button onclick="resetQuiz()" class="px-4 py-2.5 border border-brand-border hover:bg-white rounded-xl text-xs text-brand-espresso transition-all">
+                  重新測驗
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SPECIALTY MENU & FILTER SECTION -->
+    <section id="menu" class="py-20 bg-brand-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header with Live Search -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <span class="text-brand-amber font-display-en italic text-lg tracking-wider">Seasonal Selection</span>
+            <h2 class="font-serif-tc text-3xl sm:text-4xl font-black text-brand-espresso">精選品項與線上點單</h2>
+            <p class="text-sm text-brand-espresso/70 mt-1 font-light">現點現做，支援客製化冰熱、甜度與燕麥奶升級。亦可在後台隨時管理新增！</p>
+          </div>
+
+          <!-- Search & Filter Input -->
+          <div class="flex items-center space-x-3">
+            <div class="relative w-full sm:w-64">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-espresso/40 text-xs"></i>
+              <input type="text" id="menu-search-input" oninput="filterMenuItems()" placeholder="搜尋品項、風味或標籤..." class="w-full pl-9 pr-4 py-2 text-xs rounded-full bg-white border border-brand-border focus:border-brand-amber focus:outline-none transition-colors">
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex items-center space-x-2 overflow-x-auto pb-4 mb-8 text-xs font-medium no-scrollbar">
+          <button onclick="setCategoryFilter('all')" class="cat-pill active px-4 py-2 rounded-full border border-brand-espresso bg-brand-espresso text-white shrink-0 transition-all">全部品項 (<span id="count-all">0</span>)</button>
+          <button onclick="setCategoryFilter('pourover')" class="cat-pill px-4 py-2 rounded-full border border-brand-border bg-white text-brand-espresso hover:border-brand-amber shrink-0 transition-all">手沖單品 (<span id="count-pourover">0</span>)</button>
+          <button onclick="setCategoryFilter('espresso')" class="cat-pill px-4 py-2 rounded-full border border-brand-border bg-white text-brand-espresso hover:border-brand-amber shrink-0 transition-all">義式咖啡 (<span id="count-espresso">0</span>)</button>
+          <button onclick="setCategoryFilter('signature')" class="cat-pill px-4 py-2 rounded-full border border-brand-border bg-white text-brand-espresso hover:border-brand-amber shrink-0 transition-all">季節特調 (<span id="count-signature">0</span>)</button>
+          <button onclick="setCategoryFilter('dessert')" class="cat-pill px-4 py-2 rounded-full border border-brand-border bg-white text-brand-espresso hover:border-brand-amber shrink-0 transition-all">手作甜品 (<span id="count-dessert">0</span>)</button>
+          <button onclick="setCategoryFilter('brunch')" class="cat-pill px-4 py-2 rounded-full border border-brand-border bg-white text-brand-espresso hover:border-brand-amber shrink-0 transition-all">輕食早午餐 (<span id="count-brunch">0</span>)</button>
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Dynamically injected via app.js -->
+        </div>
+
+        <!-- Empty search result fallback -->
+        <div id="menu-empty" class="hidden text-center py-16">
+          <i class="fa-regular fa-folder-open text-4xl text-brand-espresso/30 mb-3"></i>
+          <p class="text-sm text-brand-espresso/60">找不到符合條件的品項，請嘗試不同關鍵字或分類。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ONLINE TABLE RESERVATION SECTION -->
+    <section id="reservation" class="py-20 bg-brand-espresso text-brand-cream relative overflow-hidden">
+      <!-- Background glow -->
+      <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-brand-amber/15 filter blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-14">
+          <span class="text-brand-amber font-display-en italic text-lg tracking-wider">Reserve a Moment</span>
+          <h2 class="font-serif-tc text-3xl sm:text-4xl font-black text-white">線上座席預約</h2>
+          <p class="text-sm text-brand-cream/70 font-light">
+            保留海景首排窗景席或手沖吧檯位。系統具備即時日期驗證與時段防呆機制，預約資料將同步儲存至後台管理中心。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl">
+          <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <!-- Name -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">預約人姓名 *</label>
+                <div class="relative">
+                  <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <input type="text" id="res-name" required placeholder="例如：邱同學" class="w-full bg-white/10 border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-white/30 focus:border-brand-amber focus:outline-none">
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">聯絡電話 *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <input type="tel" id="res-phone" required placeholder="0912-345-678" class="w-full bg-white/10 border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-white/30 focus:border-brand-amber focus:outline-none">
+                </div>
+              </div>
+
+              <!-- Guest Count -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">用餐人數 *</label>
+                <div class="relative">
+                  <i class="fa-solid fa-users absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <select id="res-guests" required class="w-full bg-brand-espresso border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:border-brand-amber focus:outline-none">
+                    <option value="1">1 位（享受獨處時光）</option>
+                    <option value="2" selected>2 位（雙人共享）</option>
+                    <option value="3">3 位</option>
+                    <option value="4">4 位（好友同行）</option>
+                    <option value="5">5 位以上（大型聚會請備註）</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Date Picker (防呆限制今日以後) -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">預約日期 * (今日起算)</label>
+                <div class="relative">
+                  <i class="fa-regular fa-calendar absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <input type="date" id="res-date" required class="w-full bg-white/10 border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:border-brand-amber focus:outline-none">
+                </div>
+              </div>
+
+              <!-- Time Slot -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">預約時段 *</label>
+                <div class="relative">
+                  <i class="fa-regular fa-clock absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <select id="res-time" required class="w-full bg-brand-espresso border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:border-brand-amber focus:outline-none">
+                    <option value="10:00">10:00 (晨光微風)</option>
+                    <option value="11:30">11:30 (早午餐時段)</option>
+                    <option value="13:30">13:30 (午後漫步)</option>
+                    <option value="15:00">15:00 (熱門下午茶)</option>
+                    <option value="16:30">16:30 (日落黃金海景)</option>
+                    <option value="18:00">18:00 (暮色低語)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Seating Zone Preference -->
+              <div class="space-y-2">
+                <label class="text-xs font-semibold text-brand-cream/80">座位區域偏好</label>
+                <div class="relative">
+                  <i class="fa-solid fa-chair absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-cream/40 text-xs"></i>
+                  <select id="res-zone" class="w-full bg-brand-espresso border border-white/20 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white focus:border-brand-amber focus:outline-none">
+                    <option value="海景窗邊景觀區" selected>海景窗邊景觀區 (最熱門)</option>
+                    <option value="沉浸式手沖吧檯">沉浸式手沖吧檯 (與咖啡師交流)</option>
+                    <option value="綠植微風戶外庭院">綠植微風戶外庭院 (寵物同行推薦)</option>
+                    <option value="靜謐木桌閱讀工作區">靜謐木桌閱讀工作區 (備有插座)</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Notes -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-brand-cream/80">特殊需求或備註事項 (選填)</label>
+              <textarea id="res-notes" rows="2" placeholder="例如：慶祝紀念日、需要兒童座椅、攜帶中型毛孩..." class="w-full bg-white/10 border border-white/20 rounded-xl p-3 text-xs text-white placeholder-white/30 focus:border-brand-amber focus:outline-none"></textarea>
+            </div>
+
+            <!-- Submit Button & Guarantee -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="text-[11px] text-brand-cream/60 flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-brand-amber"></i>
+                <span>免費預約，座位為您保留 15 分鐘，無低消手續費。</span>
+              </div>
+              <button type="submit" class="w-full sm:w-auto bg-brand-amber hover:bg-brand-amberLight text-white font-semibold text-xs px-8 py-3.5 rounded-full transition-all shadow-lg shadow-brand-amber/30">
+                <i class="fa-regular fa-paper-plane mr-1.5"></i>
+                <span>確認送出預約資料</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORE LOCATION & AMENITIES SECTION -->
+    <section id="store" class="py-20 bg-brand-cream border-t border-brand-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-brand-amber font-display-en italic text-lg tracking-wider">Visit Lumière Isle</span>
+            <h2 class="font-serif-tc text-3xl sm:text-4xl font-black text-brand-espresso">漫步至海邊，與香氣相遇</h2>
+            <p class="text-brand-espresso/70 leading-relaxed font-light text-sm">
+              我們在太平洋海浪輕拍的沿海公路旁。無論開車自駕或搭乘火車至濱海車站散步前來，都能在推門瞬間感受到撲鼻而來的烘豆香氣與悠揚爵士。
+            </p>
+
+            <div class="space-y-4 text-xs sm:text-sm text-brand-espresso/80">
+              <div class="flex items-start space-x-3">
+                <i class="fa-solid fa-location-dot text-brand-amber mt-1"></i>
+                <div>
+                  <span class="font-bold text-brand-espresso">門市地址：</span>
+                  <span>宜蘭縣頭城鎮濱海路二段 108 號 (近外澳海岸沙灘)</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fa-regular fa-clock text-brand-amber mt-1"></i>
+                <div>
+                  <span class="font-bold text-brand-espresso">營業時間：</span>
+                  <span>週一至週五 10:00 - 19:30 ｜ 週末及例假日 09:00 - 20:30 (週三公休自烘豆)</span>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fa-solid fa-phone text-brand-amber mt-1"></i>
+                <div>
+                  <span class="font-bold text-brand-espresso">門市電話：</span>
+                  <span>(03) 977-8899</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amenities Badges -->
+            <div class="pt-4 border-t border-brand-border grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+              <div class="bg-white p-3 rounded-xl border border-brand-border">
+                <i class="fa-solid fa-wifi text-brand-amber text-base mb-1 block"></i>
+                <span class="font-medium text-brand-espresso">光纖 Wi-Fi</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border">
+                <i class="fa-solid fa-plug text-brand-sage text-base mb-1 block"></i>
+                <span class="font-medium text-brand-espresso">全席電源插座</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border">
+                <i class="fa-solid fa-dog text-amber-500 text-base mb-1 block"></i>
+                <span class="font-medium text-brand-espresso">寵物繫繩友善</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-brand-border">
+                <i class="fa-solid fa-square-parking text-emerald-600 text-base mb-1 block"></i>
+                <span class="font-medium text-brand-espresso">專屬貴賓車位</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interactive Space Mock Map Card -->
+          <div class="lg:col-span-6 bg-white rounded-3xl border border-brand-border p-6 shadow-md space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-brand-border">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-brand-espresso">目前座位狀況：充裕 (68% 空位)</span>
+              </div>
+              <span class="text-[11px] text-brand-espresso/60">實時更新中</span>
+            </div>
+
+            <div class="aspect-video bg-gradient-to-tr from-brand-espresso via-brand-sage to-brand-amber/40 rounded-2xl relative overflow-hidden flex flex-col items-center justify-center text-white p-6 text-center">
+              <i class="fa-solid fa-map-location-dot text-4xl mb-3 text-brand-amberLight"></i>
+              <div class="font-serif-tc text-lg font-bold">嶼光海濱聚落・地理示意導覽</div>
+              <p class="text-xs text-white/80 mt-1 max-w-sm">
+                步行 2 分鐘即達外澳沙灘，背靠雪山山脈，面向龜山島海景日落。
+              </p>
+              <div class="mt-4 flex gap-2">
+                <a href="https://maps.google.com" target="_blank" class="bg-white/20 hover:bg-white/30 text-white text-xs px-3.5 py-1.5 rounded-full border border-white/30 backdrop-blur-sm transition-colors">
+                  <i class="fa-solid fa-diamond-turn-right mr-1"></i> Google 地圖導航
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== ADMIN CRUD MANAGEMENT DASHBOARD ======================== -->
+  <section id="admin-view" class="hidden flex-grow bg-slate-50 py-10 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Admin Header Bar -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center space-x-3">
+            <span class="bg-brand-sage text-white text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">系統後台</span>
+            <h1 class="text-2xl font-bold text-slate-800">嶼光珈琲 資料管理中心 (CRUD Dashboard)</h1>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">
+            滿足自然科學與人工智慧期末專案「管理／資料功能（新增、編輯、刪除 CRUD）」加分要求。修改後資料即時連動前台！
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="resetToDefaultData()" class="px-3.5 py-2 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors" title="重置回範例初始資料">
+            <i class="fa-solid fa-rotate-left mr-1"></i> 重置展示資料
+          </button>
+          <button onclick="toggleAdminView()" class="px-4 py-2 text-xs font-semibold text-white bg-brand-espresso hover:bg-brand-amber rounded-xl transition-all shadow-sm">
+            <i class="fa-solid fa-eye mr-1.5"></i> 返回顧客前台查看
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Statistics Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">菜單總品項數</div>
+            <div id="stat-menu-count" class="text-2xl font-bold text-slate-800 mt-1">12</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-brand-amber flex items-center justify-center text-lg">
+            <i class="fa-solid fa-mug-saucer"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">累積線上訂位筆數</div>
+            <div id="stat-res-count" class="text-2xl font-bold text-slate-800 mt-1">4</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-lg">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">當前熱門推薦品</div>
+            <div class="text-sm font-bold text-slate-800 mt-1 truncate">日落海岸・耶加雪菲</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500 font-medium">品項平均單價</div>
+            <div id="stat-avg-price" class="text-2xl font-bold text-slate-800 mt-1">NT$ 175</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-coins"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECTION: TOP BANNER ANNOUNCEMENT MANAGEMENT (公告編輯 CRUD) -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h2 class="text-base font-bold text-slate-800 flex items-center space-x-2">
+            <i class="fa-solid fa-bullhorn text-brand-amber"></i>
+            <span>首頁促銷跑馬燈公告管理 (Live Announcement Update)</span>
+          </h2>
+          <span class="text-xs text-slate-400">修改後即時生效於官網頂端</span>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="text" id="admin-banner-input" class="flex-grow text-xs rounded-xl border border-slate-300 px-4 py-2.5 focus:border-brand-amber focus:outline-none" placeholder="輸入公告內容...">
+          <button onclick="saveAdminBanner()" class="bg-brand-sage hover:bg-teal-700 text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-colors shrink-0">
+            <i class="fa-solid fa-check mr-1"></i> 更新前台公告
+          </button>
+        </div>
+      </div>
+
+      <!-- SECTION: MENU MANAGEMENT (菜單 CRUD: 新增、編輯、刪除、庫存切換) -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-800 flex items-center space-x-2">
+              <i class="fa-solid fa-utensils text-brand-amber"></i>
+              <span>咖啡與甜品菜單管理 (Menu Item CRUD)</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">可新增品項、編輯價格描述、快速切換「供應中 / 售完」狀態或刪除品項。</p>
+          </div>
+          <button onclick="openAddItemModal()" class="bg-brand-amber hover:bg-brand-amberLight text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-sm flex items-center space-x-1.5 self-start sm:self-auto">
+            <i class="fa-solid fa-plus"></i>
+            <span>新增菜單品項</span>
+          </button>
+        </div>
+
+        <!-- Menu Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">品項與描述</th>
+                <th class="py-3 px-4">分類</th>
+                <th class="py-3 px-4">售價</th>
+                <th class="py-3 px-4">庫存狀態</th>
+                <th class="py-3 px-4 text-right">操作</th>
+              </tr>
+            </thead>
+            <tbody id="admin-menu-tbody" class="divide-y divide-slate-100">
+              <!-- Dynamically populated via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION: RESERVATION MANAGEMENT (訂位 CRUD: 狀態更新、查看、刪除) -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-800 flex items-center space-x-2">
+              <i class="fa-regular fa-calendar-check text-brand-sage"></i>
+              <span>顧客線上預約管理 (Table Reservation CRUD)</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">即時掌握顧客預約名單，可更新「待確認 / 已確認 / 已入座 / 已取消」狀態或手動刪除。</p>
+          </div>
+        </div>
+
+        <!-- Reservation Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">預約姓名 / 電話</th>
+                <th class="py-3 px-4">日期 / 時段</th>
+                <th class="py-3 px-4">人數</th>
+                <th class="py-3 px-4">偏好區域</th>
+                <th class="py-3 px-4">備註</th>
+                <th class="py-3 px-4">狀態管理</th>
+                <th class="py-3 px-4 text-right">操作</th>
+              </tr>
+            </thead>
+            <tbody id="admin-res-tbody" class="divide-y divide-slate-100">
+              <!-- Dynamically populated via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== MODALS & DRAWERS ======================== -->
+
+  <!-- 1. CART & ORDER DRAWER -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-brand-dark/50 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+    <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+      <div class="pointer-events-auto w-screen max-w-md bg-brand-cream border-l border-brand-border flex flex-col shadow-2xl">
+        
+        <!-- Cart Header -->
+        <div class="p-6 bg-brand-espresso text-brand-cream flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-bag-shopping text-brand-amber"></i>
+            <h2 class="font-serif-tc text-lg font-bold">外帶餐點購物車</h2>
+          </div>
+          <button onclick="toggleCartDrawer()" class="text-brand-cream/60 hover:text-white">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Cart Empty State -->
+        <div id="cart-empty-state" class="hidden flex-grow flex flex-col items-center justify-center p-6 text-center text-brand-espresso/50 space-y-3">
+          <i class="fa-solid fa-mug-saucer text-4xl text-brand-border"></i>
+          <p class="text-sm">購物車目前是空的</p>
+          <button onclick="toggleCartDrawer()" class="text-xs text-brand-amber font-semibold underline">去菜單挑選咖啡</button>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-6 bg-white border-t border-brand-border space-y-3">
+          <div class="space-y-1.5 text-xs text-brand-espresso/70">
+            <div class="flex justify-between">
+              <span>商品小計</span>
+              <span id="cart-subtotal" class="font-semibold text-brand-espresso">NT$ 0</span>
+            </div>
+            <div class="flex justify-between text-brand-amber font-medium">
+              <span>專案優惠折扣</span>
+              <span id="cart-discount">- NT$ 0</span>
+            </div>
+            <div class="flex justify-between text-sm font-bold text-brand-espresso pt-2 border-t border-brand-border">
+              <span>應付總額</span>
+              <span id="cart-total" class="text-brand-amber text-base font-extrabold">NT$ 0</span>
+            </div>
+          </div>
+
+          <button id="checkout-btn" onclick="openCheckoutModal()" class="w-full bg-brand-amber hover:bg-brand-amberLight text-white py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all shadow-md">
+            前往結帳模擬 (Simulate Checkout)
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ITEM DETAIL & CUSTOMIZE MODAL -->
+  <div id="item-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex min-h-screen items-center justify-center p-4">
+      <div class="fixed inset-0 bg-brand-dark/50 backdrop-blur-sm" onclick="closeItemModal()"></div>
+      <div class="relative w-full max-w-lg bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-2xl space-y-6">
+        
+        <div class="flex items-start justify-between border-b border-brand-border pb-4">
+          <div>
+            <span id="modal-category" class="text-[11px] font-bold text-brand-amber uppercase tracking-wider">手沖單品</span>
+            <h3 id="modal-title" class="font-serif-tc text-2xl font-bold text-brand-espresso mt-0.5">日落海岸・衣索比亞 耶加雪菲</h3>
+            <p id="modal-eng" class="text-xs text-brand-espresso/50 italic">Sunset Isle Yirgacheffe G1</p>
+          </div>
+          <button onclick="closeItemModal()" class="text-brand-espresso/40 hover:text-brand-espresso">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <p id="modal-desc" class="text-xs sm:text-sm text-brand-espresso/70 leading-relaxed font-light">
+          高海拔水洗處理，入口呈現優雅的茉莉白花香與橙花甜感，尾韻帶出細緻的伯爵紅茶蜂蜜。
+        </p>
+
+        <!-- Customization Options -->
+        <div class="space-y-4 text-xs">
+          
+          <!-- Temp / Ice Option -->
+          <div class="space-y-2">
+            <label class="font-bold text-brand-espresso">溫度與冰量選擇</label>
+            <div class="grid grid-cols-4 gap-2">
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-temp" value="熱飲 (Hot)" checked class="hidden">
+                <span>🔥 熱飲</span>
+              </label>
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-temp" value="正常冰 (Regular)" class="hidden">
+                <span>🧊 正常冰</span>
+              </label>
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-temp" value="少冰 (Less Ice)" class="hidden">
+                <span>🧊 少冰</span>
+              </label>
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-temp" value="去冰 (No Ice)" class="hidden">
+                <span>💧 去冰</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Sweetness Option -->
+          <div class="space-y-2">
+            <label class="font-bold text-brand-espresso">甜度調整</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-sugar" value="無糖 (Sugar-free)" checked class="hidden">
+                <span>無糖 (推薦)</span>
+              </label>
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-sugar" value="微糖 (Low Sugar)" class="hidden">
+                <span>微糖 (3分)</span>
+              </label>
+              <label class="cursor-pointer text-center p-2 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="opt-sugar" value="半糖 (Half Sugar)" class="hidden">
+                <span>半糖 (5分)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Add-on Option -->
+          <div class="space-y-2">
+            <label class="font-bold text-brand-espresso">客製化加價升級</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="cursor-pointer flex items-center justify-between p-2.5 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="opt-oatmilk" class="accent-brand-amber">
+                  <span>燕麥奶升級</span>
+                </div>
+                <span class="text-brand-amber font-semibold">+NT$ 20</span>
+              </label>
+              <label class="cursor-pointer flex items-center justify-between p-2.5 rounded-xl border border-brand-border hover:border-brand-amber has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="opt-shot" class="accent-brand-amber">
+                  <span>追加一份濃縮</span>
+                </div>
+                <span class="text-brand-amber font-semibold">+NT$ 30</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="pt-4 border-t border-brand-border flex items-center justify-between gap-4">
+          <div class="flex items-center space-x-3 bg-brand-cream px-3 py-1.5 rounded-xl border border-brand-border">
+            <button onclick="adjustModalQty(-1)" class="w-6 h-6 rounded-lg bg-white text-brand-espresso flex items-center justify-center font-bold text-sm shadow-sm">-</button>
+            <span id="modal-qty" class="font-bold text-brand-espresso w-6 text-center text-sm">1</span>
+            <button onclick="adjustModalQty(1)" class="w-6 h-6 rounded-lg bg-white text-brand-espresso flex items-center justify-center font-bold text-sm shadow-sm">+</button>
+          </div>
+
+          <button onclick="confirmAddToCart()" class="flex-grow bg-brand-amber hover:bg-brand-amberLight text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 transition-all shadow-md">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>加入訂單 (小計 <span id="modal-total-price">NT$ 180</span>)</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CHECKOUT SIMULATION MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex min-h-screen items-center justify-center p-4">
+      <div class="fixed inset-0 bg-brand-dark/50 backdrop-blur-sm" onclick="closeCheckoutModal()"></div>
+      <div class="relative w-full max-w-md bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-2xl space-y-6">
+        
+        <div class="text-center space-y-2 border-b border-brand-border pb-4">
+          <div class="w-12 h-12 rounded-full bg-brand-amber/15 text-brand-amber flex items-center justify-center text-xl mx-auto">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <h3 class="font-serif-tc text-2xl font-bold text-brand-espresso">外帶取餐資訊確認</h3>
+          <p class="text-xs text-brand-espresso/60">免排隊！現做餐點將於約定時段為您準備妥當。</p>
+        </div>
+
+        <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-xs">
+          
+          <div class="space-y-1.5">
+            <label class="font-semibold text-brand-espresso">訂購人姓名 *</label>
+            <input type="text" id="chk-name" required placeholder="例如：黃同學" class="w-full border border-brand-border rounded-xl px-3 py-2 text-xs focus:border-brand-amber focus:outline-none">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-semibold text-brand-espresso">手機號碼 *</label>
+            <input type="tel" id="chk-phone" required placeholder="0988-123-456" class="w-full border border-brand-border rounded-xl px-3 py-2 text-xs focus:border-brand-amber focus:outline-none">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-semibold text-brand-espresso">預計取餐時間 *</label>
+            <select id="chk-time" required class="w-full border border-brand-border rounded-xl px-3 py-2 text-xs focus:border-brand-amber focus:outline-none">
+              <option value="15 分鐘後 (快速取餐)">15 分鐘後 (快速現做)</option>
+              <option value="30 分鐘後">30 分鐘後</option>
+              <option value="45 分鐘後">45 分鐘後</option>
+              <option value="今日營業結束前">今日營業結束前隨時自取</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="font-semibold text-brand-espresso">結帳模擬付款方式</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="text-center p-2 rounded-xl border border-brand-border cursor-pointer has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="chk-pay" value="LINE Pay" checked class="hidden">
+                <span>LINE Pay</span>
+              </label>
+              <label class="text-center p-2 rounded-xl border border-brand-border cursor-pointer has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="chk-pay" value="信用卡 / Apple Pay" class="hidden">
+                <span>信用卡</span>
+              </label>
+              <label class="text-center p-2 rounded-xl border border-brand-border cursor-pointer has-[:checked]:border-brand-amber has-[:checked]:bg-brand-cream">
+                <input type="radio" name="chk-pay" value="門市現場現金" class="hidden">
+                <span>現場現金</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-brand-border flex justify-between items-center text-sm font-bold text-brand-espresso">
+            <span>實付結帳金額</span>
+            <span id="chk-amount" class="text-brand-amber text-lg">NT$ 0</span>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-espresso hover:bg-brand-amber text-white py-3 rounded-xl font-bold text-xs uppercase transition-all shadow-md">
+            模擬送出訂單並領取取餐號碼
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ORDER / RESERVATION SUCCESS CONFIRMATION MODAL -->
+  <div id="success-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex min-h-screen items-center justify-center p-4">
+      <div class="fixed inset-0 bg-brand-dark/50 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-sm bg-white rounded-3xl border border-brand-border p-6 text-center shadow-2xl space-y-4">
+        
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto animate-bounce">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h3 id="success-title" class="font-serif-tc text-2xl font-bold text-brand-espresso">預約成功！</h3>
+        
+        <div class="bg-brand-cream p-4 rounded-2xl border border-brand-border space-y-2 text-xs text-brand-espresso/80 text-left">
+          <div class="flex justify-between">
+            <span class="text-brand-espresso/50">訂單/預約代號:</span>
+            <span id="success-code" class="font-mono font-bold text-brand-amber">#LM-20261124-08</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-brand-espresso/50">聯絡姓名:</span>
+            <span id="success-name" class="font-semibold text-brand-espresso">邱同學</span>
+          </div>
+          <div id="success-details" class="pt-2 border-t border-brand-border/60 text-brand-espresso">
+            座位已保留海景窗邊景觀位，期待您的光臨！
+          </div>
+        </div>
+
+        <button onclick="closeSuccessModal()" class="w-full bg-brand-amber hover:bg-brand-amberLight text-white py-2.5 rounded-xl text-xs font-semibold transition-all">
+          完成並關閉
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ADMIN ADD / EDIT MENU ITEM MODAL (CRUD) -->
+  <div id="admin-item-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex min-h-screen items-center justify-center p-4">
+      <div class="fixed inset-0 bg-brand-dark/50 backdrop-blur-sm" onclick="closeAdminItemModal()"></div>
+      <div class="relative w-full max-w-md bg-white rounded-3xl border border-slate-200 p-6 shadow-2xl space-y-4">
+        
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h3 id="admin-modal-title" class="text-base font-bold text-slate-800">新增菜單品項</h3>
+          <button onclick="closeAdminItemModal()" class="text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="admin-item-form" onsubmit="handleAdminItemSubmit(event)" class="space-y-3 text-xs">
+          <input type="hidden" id="adm-item-id">
+
+          <div class="space-y-1">
+            <label class="font-semibold text-slate-700">品項中文名稱 *</label>
+            <input type="text" id="adm-item-name" required placeholder="例如：海風鹽之花焦糖拿鐵" class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+          </div>
+
+          <div class="space-y-1">
+            <label class="font-semibold text-slate-700">英文副標題</label>
+            <input type="text" id="adm-item-eng" placeholder="Sea Salt Caramel Latte" class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-1">
+              <label class="font-semibold text-slate-700">分類 *</label>
+              <select id="adm-item-category" required class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+                <option value="pourover">手沖單品 (pourover)</option>
+                <option value="espresso">義式咖啡 (espresso)</option>
+                <option value="signature">季節特調 (signature)</option>
+                <option value="dessert">手作甜品 (dessert)</option>
+                <option value="brunch">輕食早午餐 (brunch)</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="font-semibold text-slate-700">價格 (NT$) *</label>
+              <input type="number" id="adm-item-price" required min="10" placeholder="180" class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <label class="font-semibold text-slate-700">風味或標籤 (逗號分隔)</label>
+            <input type="text" id="adm-item-tags" placeholder="焦糖甜感, 海鹽, 招牌必點" class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+          </div>
+
+          <div class="space-y-1">
+            <label class="font-semibold text-slate-700">品項特色詳細描述</label>
+            <textarea id="adm-item-desc" rows="2" placeholder="詳細介紹產地、工藝與口感..." class="w-full border border-slate-300 rounded-xl p-3 focus:border-brand-amber focus:outline-none"></textarea>
+          </div>
+
+          <div class="space-y-1">
+            <label class="font-semibold text-slate-700">供貨庫存狀態</label>
+            <select id="adm-item-status" class="w-full border border-slate-300 rounded-xl px-3 py-2 focus:border-brand-amber focus:outline-none">
+              <option value="available">供應中 (In Stock)</option>
+              <option value="soldout">已售完 (Sold Out)</option>
+            </select>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex justify-end space-x-2">
+            <button type="button" onclick="closeAdminItemModal()" class="px-4 py-2 border border-slate-300 rounded-xl text-slate-600 hover:bg-slate-50">取消</button>
+            <button type="submit" class="px-5 py-2 bg-brand-amber hover:bg-brand-amberLight text-white font-semibold rounded-xl transition-colors">儲存資料</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK NAVIGATION WIDGET -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-2">
+    <!-- Quick Slide Deck Link -->
+    <a href="presentation.html" target="_blank" class="bg-brand-espresso text-brand-cream border border-brand-amber/40 hover:bg-brand-amber hover:text-white px-3.5 py-2 rounded-full text-xs font-semibold shadow-lg backdrop-blur-md flex items-center space-x-1.5 transition-all">
+      <i class="fa-solid fa-file-powerpoint text-brand-amber"></i>
+      <span>15 頁成果簡報 (Presentation)</span>
+    </a>
+
+    <!-- Floating Mode Switcher Button -->
+    <button onclick="toggleAdminView()" id="floating-admin-toggle" class="bg-brand-amber text-white hover:bg-brand-espresso px-4 py-2.5 rounded-full text-xs font-bold shadow-xl flex items-center space-x-2 transition-all">
+      <i class="fa-solid fa-sliders"></i>
+      <span id="floating-admin-label">切換至後台 CRUD</span>
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-espresso text-brand-cream border-t border-brand-border/40 py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-full bg-brand-amber text-brand-espresso flex items-center justify-center font-bold">
+            <i class="fa-solid fa-coffee-bean"></i>
+          </div>
+          <div>
+            <span class="font-serif-tc font-bold text-sm tracking-wide text-white">嶼光珈琲 Lumière Isle Café</span>
+            <p class="text-[10px] text-brand-cream/60">115 學年度第 1 學期 商業設計系「自然科學與人工智慧」期末專題</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-6 text-brand-cream/70 text-xs">
+          <span>組別：CD000B 第 5 組</span>
+          <span>成員：11533208 邱也庭 ＆ 黃容媗</span>
+          <a href="presentation.html" target="_blank" class="text-brand-amber hover:underline">投影片簡報</a>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-brand-cream/50 text-[11px] gap-3">
+        <p>© 2026 Lumière Isle Café. Built with Antigravity AI Agent & Commercial Design Vibe.</p>
+        <div class="flex space-x-4">
+          <span>Vercel Ready</span>
+          <span>•</span>
+          <span>LocalStorage State Sync</span>
+          <span>•</span>
+          <span>Full CRUD Supported</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Alert Container -->
+  <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>
