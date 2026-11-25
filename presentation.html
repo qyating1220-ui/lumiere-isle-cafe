@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嶼光珈琲 Lumière Isle Café ｜ 期末成果報告簡報 (15 頁完整版)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@500;700;900&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              espresso: '#1F1916',
+              amber: '#C28B5B',
+              sage: '#4A686A',
+              cream: '#FAF6F0',
+              creamDark: '#F0E8DE',
+              border: '#E8DFC8'
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', 'serif'],
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #120E0D;
+      color: #FAF6F0;
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .font-serif-tc { font-family: 'Noto Serif TC', serif; }
+    .font-display-en { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="select-none h-screen w-screen flex flex-col justify-between">
+
+  <!-- TOP BAR: Course Info & Progress -->
+  <header class="h-14 px-6 bg-brand-espresso/90 border-b border-white/10 flex items-center justify-between z-50 shrink-0">
+    <div class="flex items-center space-x-3 text-xs">
+      <span class="bg-brand-amber text-white font-bold px-2 py-0.5 rounded text-[10px]">115 學年商設系</span>
+      <span class="text-white/80 font-medium">自然科學與人工智慧 期末成果簡報</span>
+      <span class="hidden sm:inline text-white/40">|</span>
+      <span class="hidden sm:inline text-brand-amber font-serif-tc font-bold">嶼光珈琲 Lumière Isle Café</span>
+    </div>
+
+    <div class="flex items-center space-x-4 text-xs">
+      <a href="index.html" class="text-brand-amber hover:text-white transition-colors flex items-center space-x-1">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>開啟網站作品</span>
+      </a>
+      <span class="text-white/40">|</span>
+      <div class="font-mono text-white/90 font-bold">
+        <span id="current-slide-num">1</span> / <span id="total-slide-num">15</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SLIDES CONTAINER -->
+  <main class="flex-grow relative overflow-y-auto overflow-x-hidden flex items-center justify-center p-4 sm:p-8">
+
+    <!-- ==================== SLIDE 1 ==================== -->
+    <div class="slide active flex-col justify-center items-center text-center max-w-5xl mx-auto space-y-6">
+      <div class="inline-flex items-center space-x-2 bg-brand-amber/20 border border-brand-amber/40 text-brand-amber px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider">
+        <span>CD000B 第 5 組 ｜ 期末專題成果報告</span>
+      </div>
+
+      <div class="space-y-3">
+        <h1 class="font-serif-tc text-4xl sm:text-6xl font-black text-white leading-tight">
+          嶼光珈琲 <span class="font-display-en italic text-brand-amber">Lumière Isle</span>
+        </h1>
+        <p class="font-serif-tc text-lg sm:text-2xl text-white/80 font-medium">
+          沉浸式海景精品咖啡品牌體驗與動態資料管理系統
+        </p>
+      </div>
+
+      <div class="w-24 h-1 bg-brand-amber mx-auto rounded-full my-4"></div>
+
+      <!-- Team Members & Division -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto w-full pt-4 text-left">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+          <div class="text-[11px] text-brand-amber uppercase font-bold">組員 / 報告人</div>
+          <div class="text-base font-bold text-white mt-1">11533208 邱也庭</div>
+          <div class="text-xs text-white/60 mt-1">品牌視覺設計、前端介面開發、手機版響應式重構、報告簡報製作</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+          <div class="text-[11px] text-brand-amber uppercase font-bold">組員 / 協作成員</div>
+          <div class="text-base font-bold text-white mt-1">黃容媗</div>
+          <div class="text-xs text-white/60 mt-1">後台 CRUD 系統架構、外帶點餐與座席預約防呆驗證、資料模型規劃</div>
+        </div>
+      </div>
+      <p class="text-xs text-white/40 pt-2">使用 ← → 方向鍵或下方控制列切換投影片</p>
+    </div>
+
+    <!-- ==================== SLIDE 2 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 01 ｜ 選題動機</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">選題動機與想解決的問題</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-brand-amber flex items-center justify-center text-lg">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">目標使用者族群</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            1. 喜愛海景與特色手沖咖啡的慢活旅人。<br>
+            2. 需要插座、Wi-Fi 沉浸敲筆電做設計的遠端工作者。<br>
+            3. 想提前預約窗景席、預防現場候位落空的假日訪客。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">傳統獨立咖啡店痛點</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            ・傳統紙本菜單更換成本高，售完品項無法即時通知顧客。<br>
+            ・電話訂位容易漏單或超額預約，缺乏即時防呆。<br>
+            ・顧客初次造訪常在琳瑯滿目的手沖單品豆單前無所適從。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">嶼光珈琲解決方案</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            ・互動式「今日命定咖啡推薦測驗」，3 題快速為客人找到心頭好。<br>
+            ・提供線上預約與外帶點餐結帳模擬。<br>
+            ・打造「後台資料管理 CRUD 系統」，菜單、庫存售完狀態與訂位即時雙向聯動！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 3 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 02 ｜ 品牌識別</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">品牌視覺與 Logo 設計系統 (商業設計精神)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Logo Breakdown -->
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center space-y-4">
+          <div class="w-24 h-24 rounded-full bg-brand-espresso border-2 border-brand-amber flex items-center justify-center shadow-xl">
+            <svg class="w-14 h-14" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="20" r="10" stroke="#C28B5B" stroke-width="2.5" fill="#FAF6F0" fill-opacity="0.1"/>
+              <path d="M24 13C22 17 26 23 24 27" stroke="#C28B5B" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M10 32C15 28 19 35 24 32C29 29 33 35 38 32" stroke="#4A686A" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M12 37C16 34 20 39 24 37C28 35 32 39 36 37" stroke="#4A686A" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-serif-tc text-2xl font-bold text-white">嶼光珈琲 Logo 幾何拆解</h3>
+            <p class="text-xs text-brand-amber font-display-en mt-1">Lumière Isle Visual Identity</p>
+          </div>
+          <div class="text-xs text-white/70 space-y-2 text-left w-full pt-2">
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-brand-amber"></span>
+              <span><strong>金色日落 (Sun Circle)</strong>：象徵宜蘭龜山島海平面升起之朝曦與黃昏。</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              <span><strong>咖啡豆中線 (S-Curve)</strong>：將咖啡豆裂紋化作陽光折射光束。</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+              <span><strong>浪花弧線 (Wave Line)</strong>：象徵太平洋拍岸浪花，傳遞自然與自由。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Palette & Typography -->
+        <div class="space-y-4">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
+            <h4 class="text-xs font-bold text-brand-amber uppercase tracking-wider">色彩規範 (Color System)</h4>
+            <div class="grid grid-cols-4 gap-3 text-center text-[10px]">
+              <div>
+                <div class="h-12 rounded-xl bg-[#1F1916] border border-white/20 mb-1"></div>
+                <div class="font-bold text-white">濃縮黑 #1F1916</div>
+                <div class="text-white/40">主色・沈穩專業</div>
+              </div>
+              <div>
+                <div class="h-12 rounded-xl bg-[#C28B5B] border border-white/20 mb-1"></div>
+                <div class="font-bold text-white">琥珀金 #C28B5B</div>
+                <div class="text-white/40">點綴・咖啡醇香</div>
+              </div>
+              <div>
+                <div class="h-12 rounded-xl bg-[#4A686A] border border-white/20 mb-1"></div>
+                <div class="font-bold text-white">浪花綠 #4A686A</div>
+                <div class="text-white/40">輔助・海岸生機</div>
+              </div>
+              <div>
+                <div class="h-12 rounded-xl bg-[#FAF6F0] mb-1"></div>
+                <div class="font-bold text-white">燕麥白 #FAF6F0</div>
+                <div class="text-white/40">底色・柔和親膚</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-2">
+            <h4 class="text-xs font-bold text-brand-amber uppercase tracking-wider">字型排版原則</h4>
+            <div class="text-xs text-white/70 space-y-1">
+              <p>・<strong>標題字型</strong>：Noto Serif TC（思源宋體）—— 賦予精品咖啡工藝與人文氣息。</p>
+              <p>・<strong>英文裝飾</strong>：Playfair Display —— 典雅現代襯線體，強化歐式慢活氛圍。</p>
+              <p>・<strong>內文字型</strong>：Noto Sans TC —— 確保跨螢幕、手機端極佳的排版易讀性。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 4 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 03 ｜ 架構設計</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">網站整體架構與功能地圖 (Site Map)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Customer Facing -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+          <div class="flex items-center space-x-2 text-brand-amber font-bold text-sm">
+            <i class="fa-solid fa-store"></i>
+            <span>顧客體驗前台 (Customer Facing)</span>
+          </div>
+          <div class="space-y-2 text-xs text-white/80">
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>1. 頂部跑馬燈公告</strong>：後台即時發布優惠，顧客立即掌握。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>2. 品牌故事與理念</strong>：傳達自烘豆、商設美學與當季手作巴斯克。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>3. 今日命定咖啡推薦測驗</strong>：3 題互動演算，客製化推坑並 1 鍵加入購物車。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>4. 精選菜單與線上點餐</strong>：分類篩選、客製化細節（冰熱甜度/燕麥奶升級）。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>5. 線上座席預約系統</strong>：人數、時段防呆與即時確認代號。
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+          <div class="flex items-center space-x-2 text-teal-400 font-bold text-sm">
+            <i class="fa-solid fa-sliders"></i>
+            <span>後台資料管理中心 (CRUD Dashboard - 加分項)</span>
+          </div>
+          <div class="space-y-2 text-xs text-white/80">
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>1. 數據即時看板</strong>：統計品項總數、累計預約筆數、平均單價。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>2. 菜單品項 CRUD</strong>：自由新增咖啡甜品、修改價格描述、刪除舊款。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>3. 庫存狀態即時切換</strong>：一鍵切換「供應中 / 售完 Sold Out」，前台瞬間連動禁用！
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>4. 顧客訂位 CRUD</strong>：掌握預約名冊、更新已入座/取消狀態。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl">
+              <strong>5. 資料持久化 (LocalStorage)</strong>：無須後端伺服器即可持久保存展示狀態。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 5 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 04 ｜ 核心展示 (一)</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">Live Demo：沉浸式海景首頁 ＆ 命定測驗</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="space-y-4 text-xs text-white/80 leading-relaxed">
+          <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+            <h3 class="font-bold text-brand-amber text-sm flex items-center space-x-2">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>今日命定咖啡推薦測驗 (Coffee Matchmaker)</span>
+            </h3>
+            <p>
+              ・<strong>Q1 烘焙偏好</strong>：淺焙（花果香）、中焙（焦糖堅果）、深焙（醇厚黑巧）。<br>
+              ・<strong>Q2 口感質地</strong>：澄澈黑咖啡、絲滑燕麥奶、微氣泡特調。<br>
+              ・<strong>Q3 當下狀態</strong>：激發專注靈感、悠閒放空眺望、療癒犒賞自己。<br>
+              ・<strong>動態配對演算法</strong>：由答案即時算出最匹配的單品手沖或招牌拿鐵，並附風味引言。<br>
+              ・<strong>高轉化體驗</strong>：顧客可直接在測驗結果點擊「加入外帶訂單」，無縫銜接結帳。
+            </p>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+            <h3 class="font-bold text-white text-sm">設計考量</h3>
+            <p class="text-white/60">
+              許多初次光顧獨立精品咖啡廳的顧客會有「點單恐懼症」。我們透過遊戲化的問答介面，讓專業的咖啡風土語言轉化為親民的生活情境，大幅提升互動參與率。
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-brand-amber/20 to-brand-espresso border border-brand-amber/30 rounded-3xl p-6 text-center space-y-4 shadow-xl">
+          <div class="text-5xl">☕</div>
+          <span class="text-xs bg-brand-amber text-white px-3 py-1 rounded-full font-bold">測驗演算成果示意</span>
+          <h4 class="font-serif-tc text-xl font-bold text-white">日落海岸・衣索比亞 耶加雪菲</h4>
+          <p class="text-xs text-white/70">「你的靈魂渴望清澈與靈感！淺焙手沖的茉莉白花香能喚醒沉睡的創意神經。」</p>
+          <div class="pt-2">
+            <span class="text-sm font-bold text-brand-amber">NT$ 180 ｜ 淺焙水洗 G1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 6 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 04 ｜ 核心展示 (二)</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">Live Demo：互動分類菜單與外帶購物車模擬</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="text-brand-amber text-xl"><i class="fa-solid fa-filter"></i></div>
+          <h3 class="font-bold text-white text-sm">多維度分類與即時搜尋</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            ・5 大品項分類（手沖單品、義式咖啡、季節特調、手作甜品、輕食早午餐）。<br>
+            ・支援即時模糊搜尋：輸入「檸檬」、「燕麥」或「巴斯克」，清單即時過濾。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="text-brand-amber text-xl"><i class="fa-solid fa-sliders"></i></div>
+          <h3 class="font-bold text-white text-sm">客製化客製彈窗 (Modal)</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            ・冰熱自由切換：熱飲 / 正常冰 / 少冰 / 去冰。<br>
+            ・甜度調整：無糖（推薦）/ 微糖 / 半糖。<br>
+            ・加價升級：+20 升級 Oatly 燕麥奶、+30 追加一份精萃濃縮，價格動態聯動小計。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="text-brand-amber text-xl"><i class="fa-solid fa-receipt"></i></div>
+          <h3 class="font-bold text-white text-sm">抽屜式購物車與結帳模擬</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            ・即時計算件數、滿 $300 自動折抵 $30。<br>
+            ・結帳表單輸入取餐時間、付款方式（LINE Pay / 信用卡 / 現金）。<br>
+            ・送出後立即發放「外帶取餐序號」，流程完整。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 7 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 04 ｜ 核心展示 (三)</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">Live Demo：線上座席預約系統 (時段防呆機制)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="space-y-4 text-xs text-white/80 leading-relaxed">
+          <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+            <h3 class="font-bold text-brand-amber text-sm">顧客端預約功能特色</h3>
+            <p>
+              ・<strong>預約人資料與人數</strong>：可選 1 人享受獨處至 5 人以上聚會。<br>
+              ・<strong>即時日期限制 (防呆)</strong>：限制只能選擇「當日及未來日期」，避免預約過去時間。<br>
+              ・<strong>時段選單限制</strong>：限定營業時間內的固定梯次（10:00 - 18:00）。<br>
+              ・<strong>4 大座位區偏好</strong>：海景窗邊景觀區、沉浸吧檯、綠植戶外庭院、靜謐閱讀區。<br>
+              ・<strong>預約成功代碼</strong>：送出後即時產生 <code>#RES-xxxx</code> 憑證，並同步寫入後台管理系統！
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-4">
+          <div class="text-xs font-bold text-brand-amber uppercase">即時預約資料流向 (Data Flow)</div>
+          <div class="space-y-3 text-xs">
+            <div class="bg-brand-espresso p-3 rounded-xl border border-white/10 flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-brand-amber text-white flex items-center justify-center font-bold text-[10px]">1</span>
+              <span>顧客填寫預約表單並送出</span>
+            </div>
+            <div class="text-center text-brand-amber text-sm"><i class="fa-solid fa-arrow-down"></i></div>
+            <div class="bg-brand-espresso p-3 rounded-xl border border-white/10 flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-[10px]">2</span>
+              <span>前端 JavaScript 驗證日期合法性並寫入 LocalStorage</span>
+            </div>
+            <div class="text-center text-brand-amber text-sm"><i class="fa-solid fa-arrow-down"></i></div>
+            <div class="bg-brand-espresso p-3 rounded-xl border border-white/10 flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-[10px]">3</span>
+              <span>後台管理介面立即同步更新，店員可維護「已確認 / 已入座 / 已取消」</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 8 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-teal-400 tracking-widest uppercase">Part 04 ｜ 核心展示 (四) ｜ 期末加分關鍵</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">後台資料管理系統 (CRUD Dashboard)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+          <span class="text-xs font-bold text-emerald-400">Create 新增</span>
+          <h3 class="text-white font-bold text-sm">新增菜單品項</h3>
+          <p class="text-[11px] text-white/70">支援輸入中英文名、分類、售價、風味標籤與特色介紹，保存後前台立即出現。</p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+          <span class="text-xs font-bold text-blue-400">Read 讀取</span>
+          <h3 class="text-white font-bold text-sm">數據與名冊讀取</h3>
+          <p class="text-[11px] text-white/70">即時計算菜單總數、線上訂位累積量、平均單價，表格清晰列出所有資料。</p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+          <span class="text-xs font-bold text-amber-400">Update 更新</span>
+          <h3 class="text-white font-bold text-sm">庫存與狀態修改</h3>
+          <p class="text-[11px] text-white/70">可一鍵切換「供應中 / 售完 Sold Out」、修改價格、更新訂位為已入座或修改頂部公告。</p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2">
+          <span class="text-xs font-bold text-rose-400">Delete 刪除</span>
+          <h3 class="text-white font-bold text-sm">刪除與資料防呆</h3>
+          <p class="text-[11px] text-white/70">支援二次確認刪除品項或廢棄訂位，並提供「一鍵重置展示資料」防範測試混亂。</p>
+        </div>
+      </div>
+
+      <div class="bg-teal-900/30 border border-teal-500/30 p-4 rounded-2xl text-xs text-teal-200 flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span>完全符合期末評分「管理／資料功能（+1～10分）」：具備獨立管理面板，能實際操作新增、編輯與刪除，無需後端密碼即可現場 Live 演示！</span>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 9 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 05 ｜ AI 開發歷程</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">AI Agent 開發過程與 Prompt 策略</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-3">
+          <div class="flex items-center space-x-2 text-brand-amber font-bold text-sm">
+            <i class="fa-solid fa-terminal"></i>
+            <span>關鍵 Prompt 指令工程</span>
+          </div>
+          <div class="bg-black/40 p-4 rounded-xl font-mono text-[11px] text-amber-100/90 leading-relaxed space-y-2">
+            <p><strong>學生 Prompt 範例：</strong></p>
+            <p>「我們是商業設計系學生，主題做海景精品咖啡廳『嶼光珈琲』。請幫我們設計符合大地色與浪花色系的視覺規範，除了顧客前台的菜單、購物車與測驗，必須建立一個『可實際新增、編輯、刪除菜單與訂位狀態的後台 CRUD 管理介面』，並確保修改後前台能即時雙向連動。」</p>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-3">
+          <div class="flex items-center space-x-2 text-teal-400 font-bold text-sm">
+            <i class="fa-solid fa-code-compare"></i>
+            <span>Vibe Coding 敏捷協作心法</span>
+          </div>
+          <div class="text-xs text-white/80 space-y-2 leading-relaxed">
+            <p>・<strong>多問、多試、多改</strong>：不追求一次到位，先請 AI 生成骨架，再逐步加入客製化商設細節。</p>
+            <p>・<strong>模組化拆解</strong>：將專題拆分為「品牌視覺 → 顧客前台 → 後台 CRUD → 響應式優化」四大階段逐步驗證。</p>
+            <p>・<strong>版本控制 Commit 紀錄</strong>：每完成一組核心功能或修復一個 bug，便及時 commit 並附上明確說明。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 10 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 05 ｜ AI 開發歷程</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">開發遭遇之技術挑戰與 AI 解決方案</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <div class="md:col-span-4 font-bold text-rose-400 text-xs">
+            <i class="fa-solid fa-bug mr-1"></i> 挑戰一：後台狀態無法即時連動前台
+          </div>
+          <div class="md:col-span-8 text-xs text-white/70">
+            <strong>解決方法</strong>：引入集中式 State 管理與 LocalStorage 事件回呼機制，當管理員按下「切換售完」或「新增品項」時，觸發 <code>renderApp()</code> 重新繪製前台，無需重新載入網頁。
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <div class="md:col-span-4 font-bold text-rose-400 text-xs">
+            <i class="fa-solid fa-bug mr-1"></i> 挑戰二：手機端導航列與按鈕溢出破版
+          </div>
+          <div class="md:col-span-8 text-xs text-white/70">
+            <strong>解決方法</strong>：重構 Flex 排版與 Tailwind 斷點，加入漢堡選單抽屜（Mobile Drawer）與分類標籤橫向滑動（<code>overflow-x-auto</code>），小螢幕操作順暢。
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <div class="md:col-span-4 font-bold text-rose-400 text-xs">
+            <i class="fa-solid fa-bug mr-1"></i> 挑戰三：線上訂位缺少日期限制出現幽靈單
+          </div>
+          <div class="md:col-span-8 text-xs text-white/70">
+            <strong>解決方法</strong>：於 JavaScript 動態注入 <code>input.min = today</code>，並在表單提交時進行防呆攔截，確保每筆預約皆為合法時段。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 11 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 06 ｜ 設計決策</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">學生自主設計決策與客製化亮點</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="w-8 h-8 rounded-lg bg-brand-amber/20 text-brand-amber flex items-center justify-center text-sm">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3 class="font-bold text-white text-sm">原創幾何 Logo 與品牌故事</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            不同於 AI 預設常見的扁平咖啡杯圖案，我們堅持將「海浪、日落、豆紋」三合一幾何化，並撰寫契合海濱生活風格的文案與風味標籤。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <h3 class="font-bold text-white text-sm">微交互與無障礙字體層次</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            針對商品卡片加入流暢的 Hover 陰影微交互，並嚴格遵循襯線與無襯線字型在標題、副標與價目的層級對比，體現商業設計系專長。
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h3 class="font-bold text-white text-sm">雙視角浮動切換器 (UX 創新)</h3>
+          <p class="text-xs text-white/70 leading-relaxed">
+            為方便老師與評審現場評分，我們設計了右下角隨點即切的「顧客前台 / 後台管理」浮動膠囊按鈕，無需反覆更換網址。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 12 (改善紀錄一) ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-brand-amber pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">【期末必備要求】改善紀錄 01 / 03</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">實際改善紀錄一：手機版響應式抽屜導航重構</h2>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">原本的問題 (Before)</span>
+            <div class="bg-rose-950/30 border border-rose-500/30 p-4 rounded-xl text-xs text-rose-200 leading-relaxed">
+              在手機螢幕（寬度 < 640px）瀏覽時，頂部導航連結擠在同一列造成文字重疊，且菜單分類標籤過長超出螢幕右側產生橫向捲軸破版。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">改了什麼 (Decision & Change)</span>
+            <div class="bg-amber-950/30 border border-amber-500/30 p-4 rounded-xl text-xs text-amber-200 leading-relaxed">
+              1. 建立獨立的漢堡選單按鈕與折疊抽屜（Mobile Nav Drawer）。<br>
+              2. 菜單分類採用 <code>overflow-x-auto</code> 與 <code>shrink-0</code> 橫向手勢滑動，保持頁面乾淨。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">怎麼確認 (Verification)</span>
+            <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-xl text-xs text-emerald-200 leading-relaxed">
+              <strong>驗證方式</strong>：開啟 Chrome DevTools 模擬 iPhone 14 (390px) 與 Pixel 7 視窗，點擊漢堡選單可順暢展開與關閉，分類標籤橫滑流暢無溢出。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 13 (改善紀錄二) ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-brand-amber pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">【期末必備要求】改善紀錄 02 / 03</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">實際改善紀錄二：線上訂位系統時段邏輯與防呆驗證</h2>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">原本的問題 (Before)</span>
+            <div class="bg-rose-950/30 border border-rose-500/30 p-4 rounded-xl text-xs text-rose-200 leading-relaxed">
+              早期原型使用純文字輸入框與普通日期選擇器，測試時使用者可以預約過去的日期（如上個月），且可填寫打烊後的半夜時段，造成幽靈預約單。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">改了什麼 (Decision & Change)</span>
+            <div class="bg-amber-950/30 border border-amber-500/30 p-4 rounded-xl text-xs text-amber-200 leading-relaxed">
+              1. 增加 JavaScript 動態鎖定 <code>dateInput.min = today</code>。<br>
+              2. 將自由輸入時段改為固定營業時間下拉選單（10:00 - 18:00）。<br>
+              3. 成功後彈出完整預約序號與座位區域憑證。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">怎麼確認 (Verification)</span>
+            <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-xl text-xs text-emerald-200 leading-relaxed">
+              <strong>驗證方式</strong>：實測日曆組件，昨日及以往日期呈灰色禁用狀態無法點選；送出測試預約單後，代號立即產生並於後台即時現身。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 14 (改善紀錄三) ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-brand-amber pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">【期末必備要求】改善紀錄 03 / 03</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">實際改善紀錄三：後台 CRUD 與前台菜單庫存即時連動</h2>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">原本的問題 (Before)</span>
+            <div class="bg-rose-950/30 border border-rose-500/30 p-4 rounded-xl text-xs text-rose-200 leading-relaxed">
+              初版後台管理介面修改品項價格或切換「售完」狀態後，前台選單不會更新，必須手動 F5 重新整理頁面，購物車也無法辨別已售完品項而造成超賣。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">改了什麼 (Decision & Change)</span>
+            <div class="bg-amber-950/30 border border-amber-500/30 p-4 rounded-xl text-xs text-amber-200 leading-relaxed">
+              1. 建立共用 <code>state</code> 狀態中心與 <code>saveData()</code> 同步機制。<br>
+              2. 庫存切換時即時更新卡片並將「點餐」按鈕設定為 <code>disabled</code>。<br>
+              3. 新增品項立即在前台菜單與分類計數中生效。
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">怎麼確認 (Verification)</span>
+            <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-xl text-xs text-emerald-200 leading-relaxed">
+              <strong>驗證方式</strong>：在後台將「耶加雪菲」切換為「已售完」，返回前台查看該品項立即標上 Sold Out 紅標且點餐按鈕鎖定；再次切換回供應中立即解鎖。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SLIDE 15 ==================== -->
+    <div class="slide flex-col justify-center max-w-5xl mx-auto space-y-6 w-full">
+      <div class="border-b border-white/10 pb-4">
+        <span class="text-xs font-bold text-brand-amber tracking-widest uppercase">Part 07 ｜ 心得與展望</span>
+        <h2 class="font-serif-tc text-3xl font-black text-white mt-1">試用心得、成員分工表與下一版展望</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Division of Labor Table -->
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <h3 class="text-xs font-bold text-brand-amber uppercase">組員具體分工表 (個人貢獻)</h3>
+          <div class="space-y-2 text-xs">
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+              <strong class="text-white">11533208 邱也庭</strong>：<br>
+              ・專題主題與 Logo 幾何設計發想、色彩規範定義。<br>
+              ・前端 UI / UX 刻劃、命定咖啡推薦測驗演算法。<br>
+              ・手機響應式破版改善（改善紀錄一）與期末簡報製作。
+            </div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
+              <strong class="text-white">黃容媗</strong>：<br>
+              ・後台 CRUD 資料管理架構設計（菜單與訂位管理）。<br>
+              ・線上座席預約系統時段防呆與邊界驗證（改善紀錄二）。<br>
+              ・前台與後台即時狀態連動（改善紀錄三）與 Git 專案維護。
+            </div>
+          </div>
+        </div>
+
+        <!-- Takeaways & Next Steps -->
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <h3 class="text-xs font-bold text-teal-400 uppercase">試用心得與下一版規劃</h3>
+          <div class="text-xs text-white/80 space-y-2 leading-relaxed">
+            <p><strong>試用心得</strong>：從原本對程式碼感到畏懼，到透過 AI Agent 進行「Vibe Coding」，我們體會到用精準的設計語言與邏輯溝通的重要性。看到自己設計的 Logo 與咖啡菜單真的能點餐並在後台被管理，非常有成就感！</p>
+            <p><strong>下一版（v2.0）規劃</strong>：<br>
+              1. 串接真實金流 API（綠界科技或 LINE Pay Sandbox）。<br>
+              2. 增加會員點數集章與手沖咖啡豆產地 3D 視覺地圖。<br>
+              3. 整合真正的雲端資料庫（如 Supabase / Firebase）。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <span class="font-serif-tc text-lg text-white font-bold">感謝老師與全體同學聆聽！歡迎提問與現場操作體驗 ☕</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM BAR: Controls -->
+  <footer class="h-16 px-6 bg-brand-espresso/90 border-t border-white/10 flex items-center justify-between z-50 shrink-0">
+    <div class="flex items-center space-x-2">
+      <button onclick="prevSlide()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-3 transition-colors">
+        <i class="fa-solid fa-chevron-left mr-1"></i> 上一頁 (Left)
+      </button>
+      <button onclick="nextSlide()" class="p-2 rounded-xl bg-brand-amber hover:bg-brand-amber/80 text-white text-xs font-bold px-3 transition-colors">
+        下一頁 (Right) <i class="fa-solid fa-chevron-right ml-1"></i>
+      </button>
+    </div>
+
+    <!-- Quick Slide Dots / Jump -->
+    <div id="slide-pills" class="hidden md:flex items-center space-x-1.5">
+      <!-- Injected via JS -->
+    </div>
+
+    <div class="flex items-center space-x-3 text-xs">
+      <button onclick="toggleFullScreen()" class="text-white/60 hover:text-white transition-colors" title="全螢幕播放">
+        <i class="fa-solid fa-expand text-sm"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function init() {
+      document.getElementById('total-slide-num').textContent = totalSlides;
+      renderPills();
+      updateSlide();
+    }
+
+    function renderPills() {
+      const pillsContainer = document.getElementById('slide-pills');
+      if (!pillsContainer) return;
+      pillsContainer.innerHTML = Array.from({ length: totalSlides }).map((_, i) => `
+        <button onclick="goToSlide(${i})" class="w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-brand-amber scale-125' : 'bg-white/20 hover:bg-white/40'}" title="第 ${i + 1} 頁"></button>
+      `).join('');
+    }
+
+    function updateSlide() {
+      slides.forEach((s, idx) => {
+        if (idx === currentSlide) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+      document.getElementById('current-slide-num').textContent = currentSlide + 1;
+      renderPills();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentSlide = index;
+        updateSlide();
+      }
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') {
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        goToSlide(totalSlides - 1);
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>
